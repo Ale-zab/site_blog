@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b5789e21-3f4c-4be7-9efb-0218c39f7809" name="skillbox_ubuntu">
+        <fileTransfer accessType="SFTP" host="192.168.1.17" port="22" sshConfigId="f0f25fe0-3849-424b-aa20-51d6b3c050b6" sshConfig="alezab@192.168.1.17:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
