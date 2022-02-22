@@ -18,9 +18,11 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        @foreach($pages as $page)
-            <a class="p-2 link-secondary" href="/{{$page->url}}">{{$page->name}}</a>
-        @endforeach
+         <a class="p-2 link-secondary" href="/">Главная</a>
+         <a class="p-2 link-secondary" href="/aboutus">О нас</a>
+         <a class="p-2 link-secondary" href="/contacts">Контакты</a>
+         <a class="p-2 link-secondary" href="/articles/create">Создать статью</a>
+         <a class="p-2 link-secondary" href="/admin/feedback">Админ. раздел</a>
     </nav>
   </div>
 </div>

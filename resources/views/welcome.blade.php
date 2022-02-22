@@ -6,7 +6,7 @@
     <div class="col-md-6 px-0">
       <h1 class="display-4 fst-italic">{{$about->name}}</h1>
       <p class="lead my-3">{{$about->description}}</p>
-      <p class="lead mb-0"><a href="{{$about->url}}" class="text-white fw-bold">Читать дальше...</a></p>
+      <p class="lead mb-0"><a href="/aboutus" class="text-white fw-bold">Читать дальше...</a></p>
     </div>
   </div>
 

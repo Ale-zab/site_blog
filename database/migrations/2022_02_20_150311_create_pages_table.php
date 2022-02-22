@@ -17,7 +17,6 @@ class CreatePagesTable extends Migration
             $table->id('id');
             $table->string('name', 255)->collation('utf8mb4_unicode_ci');
             $table->text('description')->collation('utf8mb4_unicode_ci');
-            $table->string('url', 255)->collation('utf8mb4_unicode_ci');
             $table->tinyInteger('status');
             $table->timestamps();
         });
