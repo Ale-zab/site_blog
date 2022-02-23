@@ -15,7 +15,7 @@ class ArticleController extends Controller
     public function index()
     {
         $title = 'Главная';
-        $articles = false;
+        $articles = Article::publish();
 
         return view('welcome', compact('articles', 'title'));
     }
@@ -37,7 +37,7 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Article $article)
     {
         $this->validate(request(), [
             'name'              => 'required|min:5|max:100',
@@ -46,7 +46,6 @@ class ArticleController extends Controller
             'url'               => 'required',
         ]);
 
-      $article = new Article();
       $article->name              = request('name');
       $article->short_description = request('short_description');
       $article->description       = request('description');
@@ -70,37 +69,7 @@ class ArticleController extends Controller
         return view('show', compact('title', 'index'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    public function edit($id) {}
+    public function update(Request $request, $id) {}
+    public function destroy($id) {}
 }
