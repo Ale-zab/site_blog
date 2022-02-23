@@ -1,8 +1,8 @@
 <div class="col-md-4">
     <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">{{$about->name}}</h4>
-            <p class="mb-0">{{$about->description}}</p>
+            <h4 class="fst-italic">О нас</h4>
+            <p class="mb-0">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Даже рот всемогущая всеми, моей, составитель, жаренные маленький дал рыбного ты запятой путь реторический безорфографичный скатился? Если путь ipsum заголовок, лучше в...</p>
         </div>
 
         <div class="p-4">
@@ -21,7 +21,7 @@
               <li><a href="#">May 2020</a></li>
               <li><a href="#">April 2020</a></li>
             </ol>
-          </div>  
+          </div>
 
         <div class="p-4">
             <h4 class="fst-italic">Elsewhere</h4>
@@ -32,5 +32,5 @@
             </ol>
         </div>
     </div>
-</div>   
+</div>
 

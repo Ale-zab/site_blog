@@ -5,8 +5,8 @@
   <div class="row g-5">
     <div class="col-md-8">
       <article>
-        <h2 class="blog-post-title">{{$index->name}}</h2>
-        <p>{{$index->description}}</p>
+        <h1 class="blog-post-title">Контакты</h1>
+        <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Даже рот всемогущая всеми, моей, составитель, жаренные маленький дал рыбного ты запятой путь реторический безорфографичный скатился?</p>
       </article>
 
       @include('common.errors')

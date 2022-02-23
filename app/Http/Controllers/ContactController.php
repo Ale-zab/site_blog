@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Page;
 use App\Message;
 use Illuminate\Http\Request;
 
@@ -15,11 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $index    = Page::find(3);
-        $about    = Page::find(2);
-        $about->description = mb_strimwidth($about->description, 0, 255, '...');
-        $pages    = Page::get();
-        return view('contacts', compact('pages', 'index', 'about'));
+        $title = 'Контакты';
+        return view('contacts', compact('title'));
     }
 
      /**

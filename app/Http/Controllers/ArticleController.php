@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Article;
-use App\Page;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -15,13 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $index    = Page::find(1);
-        $pages    = Page::get();
-        $about    = Page::find(2);
-        $about->description = mb_strimwidth($about->description, 0, 255, '...');
-        $articles = Article::publish();
+        $title = 'Главная';
+        $articles = false;
 
-        return view('welcome', compact('articles', 'pages', 'index', 'about'));
+        return view('welcome', compact('articles', 'title'));
     }
 
     /**
@@ -31,12 +27,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $index    = Page::find(4);
-        $about    = Page::find(2);
-        $about->description = mb_strimwidth($about->description, 0, 255, '...');
-        $pages    = Page::get();
-
-        return view('create', compact('pages', 'index', 'about'));
+        $title = 'Создать статью';
+        return view('create', compact('title'));
     }
 
     /**
@@ -74,11 +66,8 @@ class ArticleController extends Controller
      */
     public function show(Article $index)
     {
-        $pages    = Page::get();
-        $about    = Page::find(2);
-        $about->description = mb_strimwidth($about->description, 0, 255, '...');
-
-        return view('show', compact('pages', 'index', 'about'));
+        $title    = $index->name;
+        return view('show', compact('title', 'index'));
     }
 
     /**
