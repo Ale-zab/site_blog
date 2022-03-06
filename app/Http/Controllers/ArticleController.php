@@ -3,73 +3,75 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Http\Requests\ArticleForm;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $title = 'Главная';
         $articles = Article::publish();
 
-        return view('welcome', compact('articles', 'title'));
+        return view('articles', compact('articles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        $title = 'Создать статью';
-        return view('create', compact('title'));
+        return view('create', compact('article'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, Article $article)
+ * Store the incoming blog post.
+ *
+ * @param  ArticleForm  $request
+ * @return Response
+ */
+
+    public function store(ArticleForm $request, Article $article)
     {
-        $this->validate(request(), [
-            'name'              => 'required|min:5|max:100',
-            'short_description' => 'required|max:255',
-            'description'       => 'required',
-            'url'               => 'required',
-        ]);
+        $validated = $request->validated();
 
-      $article->name              = request('name');
-      $article->short_description = request('short_description');
-      $article->description       = request('description');
-      $article->url               = request('url');
-      $article->status            = request('status') ? 1 : 0;
+        $article->name              = request('name');
+        $article->short_description = request('short_description');
+        $article->description       = request('description');
+        $article->url               = request('url');
+        $article->status            = request('status') ? 1 : 0;
 
-      $article->save();
+        $article->save();
 
-      return redirect('/');
+        return redirect('/articles/' . $article->url);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Article $index)
+    public function show(Article $article)
     {
-        $title    = $index->name;
-        return view('show', compact('title', 'index'));
+        return view('show', compact('article'));
     }
 
-    public function edit($id) {}
-    public function update(Request $request, $id) {}
-    public function destroy($id) {}
+    public function edit(Article $article)
+    {
+        return view('edit', compact('article'));
+    }
+
+    public function update(ArticleForm $request, Article $article)
+    {
+
+        $validated = $request->validated();
+
+        $article->name              = request('name');
+        $article->short_description = request('short_description');
+        $article->description       = request('description');
+        $article->url               = request('url');
+        $article->status            = request('status') ? 1 : 0;
+
+        $article->save();
+
+        return redirect('/articles/' . $article->url);
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        return redirect('/articles');
+    }
 }

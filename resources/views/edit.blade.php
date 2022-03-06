@@ -1,4 +1,4 @@
-@section('title', 'Контакты')
+@section('title', 'Редактировать статью: ' . $article->name)
 @extends('common.layout')
 
 @section('content')
@@ -6,7 +6,7 @@
         <div class="row g-5">
             <div class="col-md-8">
                 <article>
-                    <h1 class="blog-post-title">Контакты</h1>
+                    <h1 class="blog-post-title">Редактировать статью</h1>
                     <p>Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Даже рот
                         всемогущая всеми, моей, составитель, жаренные маленький дал рыбного ты запятой путь реторический
                         безорфографичный скатился?</p>
@@ -14,21 +14,15 @@
 
                 @include('common.errors')
 
-                <form action="" method="POST" class="blog-post">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="text" name="email" class="form-control" placeholder="Email" id="email"">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Ваша сообщение</label>
-                        <textarea class="form-control" id="message" name="message"
-                                  placeholder="Ваша сообщение"></textarea>
-                    </div>
-
+                <form action="/articles/{{ $article->url }}" method="POST" class="blog-post">
+                    @method('PATCH')
+                    @include('form')
+                </form>
+                <form action="/articles/{{ $article->url }}" method="POST" class="blog-post">
                     @csrf
+                    @method('DELETE')
 
-                    <button type="submit" class="btn btn-primary">Отправить</button>
+                    <button type="submit" class="btn btn-danger">Удалить</button>
                 </form>
             </div>
 
@@ -36,3 +30,4 @@
         </div>
     </main>
 @endsection
+

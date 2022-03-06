@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class FormRequest extends Request
 {
     public function index()
     {
-        return view('aboutus');
+
     }
+
 }

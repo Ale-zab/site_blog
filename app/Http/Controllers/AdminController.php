@@ -7,23 +7,15 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index() {}
+    public function index()
+    {
+        return view('admin', compact('admin'));
+    }
 
-        /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function feedback()
     {
-        $title = 'Админ. раздел';
         $messages = Message::latest()->get();
 
-        return view('admin', compact('title', 'messages'));
+        return view('feedback', compact('messages'));
     }
 }
