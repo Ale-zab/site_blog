@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Services\TagsSynchronizer;
@@ -38,22 +37,22 @@ class ArticleController extends Controller
 
     public function show($index)
     {
-        if (!Article::where('url', '=', $index)->exists()) {
+        $article = Article::get($index);
+
+        if (!$article) {
             return abort(404);
         }
-
-         $article = Article::where('url', '=', $index)->first();
 
         return view('show', compact('article'));
     }
 
     public function edit($index)
     {
-        if (!Article::where('url', '=', $index)->exists()) {
+        $article = Article::get($index);
+
+        if (!$article) {
             return abort(404);
         }
-
-        $article = Article::where('url', '=', $index)->first();
 
         return view('edit', compact('article'));
     }

@@ -9,6 +9,8 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['*'];
+
     public function getRouteKeyName()
     {
         return 'url';
@@ -22,6 +24,10 @@ class Article extends Model
     public function scopePublish($query)
     {
         return $query->where('status', 1)->latest()->get();
+    }
+
+    public function get($url) {
+       return self::where('url', '=', $url)->first();
     }
 }
 
