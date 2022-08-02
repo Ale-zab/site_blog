@@ -21,7 +21,6 @@ class CreateArticlesTable extends Migration
             $table->string('url', 255)->collation('utf8mb4_unicode_ci');
             $table->tinyInteger('status');
             $table->timestamps();
-
         });
     }
 

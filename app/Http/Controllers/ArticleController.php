@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Article;
 use App\Http\Requests\ArticleRequest;
 use App\Services\TagsSynchronizer;

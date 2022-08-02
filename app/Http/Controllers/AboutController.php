@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 class AboutController extends Controller
 {
     public function index()
@@ -9,4 +10,3 @@ class AboutController extends Controller
         return view('aboutus');
     }
 }
-

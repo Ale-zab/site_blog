@@ -198,6 +198,7 @@
             "time": "2021-08-13T13:06:58+00:00"
         },
         {
+
             "name": "doctrine/inflector",
             "version": "2.0.4",
             "source": {
@@ -290,6 +291,7 @@
         },
         {
             "name": "doctrine/lexer",
+
             "version": "1.2.3",
             "source": {
                 "type": "git",

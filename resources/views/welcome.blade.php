@@ -1,3 +1,4 @@
+
 @section('title', 'Главная')
 @extends('common.layout')
 
